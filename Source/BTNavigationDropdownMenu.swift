@@ -95,7 +95,6 @@ public class BTNavigationDropdownMenu: UIView {
         }
         set(value) {
             self.configuration.cellTextLabelFont = value
-            self.menuTitle.font = self.configuration.cellTextLabelFont
         }
     }
     
