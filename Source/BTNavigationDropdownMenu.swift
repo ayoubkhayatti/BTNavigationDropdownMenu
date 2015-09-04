@@ -368,7 +368,7 @@ public class BTNavigationDropdownMenu: UIView {
         self.menuTitle.text = title
     }
     
-    func menuButtonTapped(sender: UIButton) {
+    public func menuButtonTapped(sender: AnyObject) {
         self.isShown = !self.isShown
         if self.isShown == true {
             self.showMenu()
