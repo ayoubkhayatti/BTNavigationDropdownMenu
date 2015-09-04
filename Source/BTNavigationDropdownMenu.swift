@@ -128,7 +128,7 @@ public class BTNavigationDropdownMenu: UIView {
             self.configuration.animationDuration = value
         }
     }
-
+    
     // The arrow next to navigation title
     public var arrowImage: UIImage! {
         get {
@@ -209,11 +209,11 @@ public class BTNavigationDropdownMenu: UIView {
         // Init properties
         self.menuTitleFont = titleFont
         self.menuTitleColor = titleColor
-        self.cellBackgroundColor = backgroundColor
-        self.cellTextLabelColor = textColor
-        self.cellSeparatorColor = seperatorColor
         self.cellTextLabelFont = cellFont
-
+        self.cellBackgroundColor = cellBackgroundColor
+        self.cellTextLabelColor = cellTextColor
+        self.cellSeparatorColor = cellSeperatorColor
+        
         // Init button as navigation title
         self.menuButton = UIButton(frame: frame)
         self.menuButton.addTarget(self, action: "menuButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -351,8 +351,8 @@ public class BTNavigationDropdownMenu: UIView {
         UIView.animateWithDuration(self.configuration.animationDuration, delay: 0, options: UIViewAnimationOptions.TransitionNone, animations: {
             self.tableView.frame.origin.y = -CGFloat(self.items.count) * self.configuration.cellHeight - 300
             self.backgroundView.alpha = 0
-        }, completion: { _ in
-            self.menuWrapper.hidden = true
+            }, completion: { _ in
+                self.menuWrapper.hidden = true
         })
     }
     
@@ -361,7 +361,7 @@ public class BTNavigationDropdownMenu: UIView {
             if let selfie = self {
                 selfie.menuArrow.transform = CGAffineTransformRotate(selfie.menuArrow.transform, 180 * CGFloat(M_PI/180))
             }
-        })
+            })
     }
     
     func setMenuTitle(title: String) {
@@ -406,7 +406,7 @@ class BTConfiguration {
         let imageBundle = NSBundle(URL: url!)
         let checkMarkImagePath = imageBundle?.pathForResource("checkmark_icon", ofType: "png")
         let arrowImagePath = imageBundle?.pathForResource("arrow_down_icon", ofType: "png")
-
+        
         // Default values
         self.menuTitleColor = UIColor.darkGrayColor()
         self.cellHeight = 50
