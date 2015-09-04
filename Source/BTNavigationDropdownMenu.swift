@@ -135,7 +135,6 @@ public class BTNavigationDropdownMenu: UIView {
         }
         set(value) {
             self.configuration.arrowImage = value
-            self.menuArrow.image = self.configuration.arrowImage
         }
     }
     
@@ -187,7 +186,7 @@ public class BTNavigationDropdownMenu: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(title: String, items: [AnyObject], navigationController: UINavigationController, titleColor:UIColor, titleFont:UIFont, cellBackgroundColor:UIColor, cellTextColor:UIColor, cellSeperatorColor:UIColor, cellFont:UIFont) {
+    public init(title: String, items: [AnyObject], navigationController: UINavigationController, titleColor:UIColor, titleFont:UIFont, cellBackgroundColor:UIColor, cellTextColor:UIColor, cellSeperatorColor:UIColor, cellFont:UIFont, arrowImage:UIImage, checkMarkImage:UIImage) {
         
         // Navigation controller
         self.navigationController = navigationController
@@ -212,6 +211,8 @@ public class BTNavigationDropdownMenu: UIView {
         self.cellBackgroundColor = cellBackgroundColor
         self.cellTextLabelColor = cellTextColor
         self.cellSeparatorColor = cellSeperatorColor
+        self.arrowImage = arrowImage
+        self.checkMarkImage = checkMarkImage
         
         // Init button as navigation title
         self.menuButton = UIButton(frame: frame)
