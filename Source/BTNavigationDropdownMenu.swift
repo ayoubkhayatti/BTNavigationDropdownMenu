@@ -178,7 +178,7 @@ public class BTNavigationDropdownMenu: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(title: String, items: [AnyObject]) {
+    public init(title: String, items: [AnyObject], navigationController: UINavigationController, titleColor:UIColor, backgroundColor:UIColor, textColor:UIColor) {
         
         // Navigation controller
         self.navigationController = UIApplication.sharedApplication().keyWindow?.rootViewController?.BTTopMostViewController().navigationController
@@ -197,7 +197,9 @@ public class BTNavigationDropdownMenu: UIView {
         self.items = items
         
         // Init properties
-        self.setupDefaultConfiguration()
+        self.menuTitleColor = titleColor
+        self.cellBackgroundColor = backgroundColor
+        self.cellTextLabelColor = textColor
 
         // Init button as navigation title
         self.menuButton = UIButton(frame: frame)
