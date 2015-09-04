@@ -29,6 +29,16 @@ import UIKit
 // MARK: BTNavigationDropdownMenu
 public class BTNavigationDropdownMenu: UIView {
     
+    // The font of menu title
+    public var menuTitleFont: UIFont! {
+        get {
+            return self.configuration.menuTitleFont
+        }
+        set(value) {
+            self.configuration.menuTitleFont = value
+        }
+    }
+    
     // The color of menu title. Default is darkGrayColor()
     public var menuTitleColor: UIColor! {
         get {
@@ -178,7 +188,7 @@ public class BTNavigationDropdownMenu: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(title: String, items: [AnyObject], navigationController: UINavigationController, titleColor:UIColor, backgroundColor:UIColor, textColor:UIColor, seperatorColor:UIColor) {
+    public init(title: String, items: [AnyObject], navigationController: UINavigationController, titleColor:UIColor, titleFont:UIFont, cellBackgroundColor:UIColor, cellTextColor:UIColor, cellSeperatorColor:UIColor, cellFont:UIFont) {
         
         // Navigation controller
         self.navigationController = navigationController
@@ -197,10 +207,12 @@ public class BTNavigationDropdownMenu: UIView {
         self.items = items
         
         // Init properties
+        self.menuTitleFont = titleFont
         self.menuTitleColor = titleColor
         self.cellBackgroundColor = backgroundColor
         self.cellTextLabelColor = textColor
         self.cellSeparatorColor = seperatorColor
+        self.cellTextLabelFont = cellFont
 
         // Init button as navigation title
         self.menuButton = UIButton(frame: frame)
@@ -210,8 +222,8 @@ public class BTNavigationDropdownMenu: UIView {
         self.menuTitle = UILabel(frame: frame)
         self.menuTitle.text = title
         self.menuTitle.textColor = self.menuTitleColor
+        self.menuTitle.font = self.menuTitleFont
         self.menuTitle.textAlignment = NSTextAlignment.Center
-        self.menuTitle.font = self.configuration.cellTextLabelFont
         self.menuButton.addSubview(self.menuTitle)
         
         self.menuArrow = UIImageView(image: self.configuration.arrowImage)
@@ -369,6 +381,7 @@ public class BTNavigationDropdownMenu: UIView {
 // MARK: BTConfiguration
 class BTConfiguration {
     var menuTitleColor: UIColor!
+    var menuTitleFont: UIFont!
     var cellHeight: CGFloat!
     var cellBackgroundColor: UIColor!
     var cellSeparatorColor: UIColor!
