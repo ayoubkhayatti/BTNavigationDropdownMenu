@@ -168,6 +168,7 @@ public class BTNavigationDropdownMenu: UIView {
         }
     }
     
+    public var isShown: Bool!
     public var didSelectItemAtIndexHandler: ((indexPath: Int) -> ())?
     
     private var navigationController: UINavigationController?
@@ -179,7 +180,6 @@ public class BTNavigationDropdownMenu: UIView {
     private var backgroundView: UIView!
     private var tableView: BTTableView!
     private var items: [AnyObject]!
-    private var isShown: Bool!
     private var menuWrapper: UIView!
     
     required public init?(coder aDecoder: NSCoder) {
@@ -291,7 +291,7 @@ public class BTNavigationDropdownMenu: UIView {
         self.cellTextLabelColor = self.navigationController?.navigationBar.titleTextAttributes?[NSForegroundColorAttributeName] as? UIColor
     }
     
-    func showMenu() {
+    public func showMenu() {
         self.menuWrapper.frame.origin.y = (self.navigationController?.navigationBar.frame.maxY)!
         
         // Table view header
@@ -329,7 +329,7 @@ public class BTNavigationDropdownMenu: UIView {
         )
     }
     
-    func hideMenu() {
+    public func hideMenu() {
         // Rotate arrow
         self.rotateArrow()
         
