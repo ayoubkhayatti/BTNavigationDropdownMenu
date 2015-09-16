@@ -170,7 +170,8 @@ public class BTNavigationDropdownMenu: UIView {
     
     
     public var didSelectItemAtIndexHandler: ((indexPath: Int) -> ())?
-    
+    public var tableView: BTTableView!
+
     private var navigationController: UINavigationController?
     private var configuration = BTConfiguration()
     private var topSeparator: UIView!
@@ -178,7 +179,6 @@ public class BTNavigationDropdownMenu: UIView {
     private var menuTitle: UILabel!
     private var menuArrow: UIImageView!
     private var backgroundView: UIView!
-    private var tableView: BTTableView!
     private var items: [AnyObject]!
     private var menuWrapper: UIView!
     private var isShown: Bool!
