@@ -170,8 +170,7 @@ public class BTNavigationDropdownMenu: UIView {
     
     
     public var didSelectItemAtIndexHandler: ((indexPath: Int) -> ())?
-    public var tableView: BTTableView!
-
+    
     private var navigationController: UINavigationController?
     private var configuration = BTConfiguration()
     private var topSeparator: UIView!
@@ -182,6 +181,7 @@ public class BTNavigationDropdownMenu: UIView {
     private var items: [AnyObject]!
     private var menuWrapper: UIView!
     private var isShown: Bool!
+    private var tableView: BTTableView!
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -380,6 +380,11 @@ public class BTNavigationDropdownMenu: UIView {
     
     public func isMenuShown() -> Bool{
         return self.isShown;
+    }
+    
+    public func selectIndexPath(indexPath: NSIndexPath){
+        self.tableView .selectedIndexPath = indexPath.row;
+        self.tableView.selectRowAtIndexPath(indexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
     }
 }
 
